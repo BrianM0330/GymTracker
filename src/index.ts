@@ -3,18 +3,17 @@ import {createConnection} from "typeorm"
 import express from "express"
 import {ApolloServer} from "apollo-server-express"
 import {buildSchema} from "type-graphql"
-import {HelloWorldResolver} from "./resolvers/HelloWorldResolver"
-//import resolvers
+import { popDataResolver } from "./resolvers/popDataResolver"
 
 (async () => {
     const app = express();
   
     await createConnection();
-    
+
     //initializing apolloserver 
     const apolloServer = new ApolloServer({
       schema: await buildSchema({
-        resolvers: [HelloWorldResolver]
+        resolvers: [popDataResolver]
       }),
       context: ({ req, res }) => ({ req, res })
     });
