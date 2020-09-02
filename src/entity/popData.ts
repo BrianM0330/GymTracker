@@ -3,7 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 @Entity()
 export class popData {
   @PrimaryGeneratedColumn()
-    Date!: Date;
+    date!: Date;
 
   @Column()
     time_8!: string;
