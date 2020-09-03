@@ -20,27 +20,35 @@ export class popData extends BaseEntity{
   @Column('int', {nullable:true})
     population_8: number;
 
+  @Field(() => Int)
   @Column('int', {nullable:true})
     population_9: number;
 
+  @Field(() => Int)
   @Column('int', {nullable:true})
     population_10: number;
 
+  @Field(() => Int)
   @Column('int', {nullable:true})
     population_11: number;
 
+  @Field(() => Int)
   @Column('int', {nullable:true})
     population_12: number;
 
+  @Field(() => Int)
   @Column('int', {nullable:true})
     population_13: number;
 
+  @Field(() => Int)
   @Column('int', {nullable:true})
     population_14: number;
 
+  @Field(() => Int)
   @Column('int', {nullable:true})
     population_15: number;
 
+  @Field(() => Int)
   @Column('int', {nullable:true})
     population_16: number;
 }
