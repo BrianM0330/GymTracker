@@ -112,7 +112,7 @@ export class popDataResolver {
     }
 
     @Query(() => [popData])
-    populationHistory() {
+    popHistory() {
         return popData.find()
     }
 }
