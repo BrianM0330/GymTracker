@@ -1,5 +1,6 @@
 import {Resolver, Mutation, Arg, Query} from "type-graphql"
 import { popData } from "../entity/popEntity";
+import inputUpdateFields from './inputUpdateFields'
 
 @Resolver()
 export class popDataResolver {
@@ -91,6 +92,15 @@ export class popDataResolver {
         await popData.insert({population_16})
         console.log(population_16)
         return true;
+    }
+
+    @Mutation(() => Boolean)
+    async updateEntry(
+    @Arg('id' ) id: number,
+    @Arg('input', () => inputUpdateFields) input: inputUpdateFields
+    ) {
+        await popData.update({id}, input)
+        return true
     }
 
     @Query(() => [popData])
