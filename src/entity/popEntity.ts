@@ -15,6 +15,10 @@ export class popData extends BaseEntity {
   @Column("date", { nullable: true })
   population_date: Date;
 
+  @Field(() => String)
+  @Column("string", { nullable: true })
+  location: string;
+
   @Field(() => Int, { nullable: true })
   @Column("int", { nullable: true })
   population_8: number;
