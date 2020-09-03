@@ -1,4 +1,4 @@
-import {Resolver, Mutation, Arg, Query} from "type-graphql"
+import {Resolver, Mutation, Arg, Query, Int} from "type-graphql"
 import { popData } from "../entity/popEntity";
 import inputUpdateFields from './inputUpdateFields'
 
@@ -100,6 +100,14 @@ export class popDataResolver {
     @Arg('input', () => inputUpdateFields) input: inputUpdateFields
     ) {
         await popData.update({id}, input)
+        return true
+    }
+
+    @Mutation(() => Boolean)
+    async deleteEntry(
+        @Arg('id', () => Int) id:number
+    ) {
+        await popData.delete({id})
         return true
     }
 
