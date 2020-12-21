@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {GymCard} from './locationCard'
+import { GymCard } from './locationCard'
 import axios from 'axios'
 import '../index.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {CardDeck} from 'react-bootstrap'
+import { CardDeck } from 'react-bootstrap'
 
 export const DeckOfLocations: React.FC = () => {
     const [locations, setLocations] = useState({})
@@ -29,21 +29,14 @@ export const DeckOfLocations: React.FC = () => {
         if (latitude && longitude) {
             const findNearest = () => {
                 axios
-                .post('http://localhost:4000/findNearest', {"latitude": latitude, "longitude": longitude})
-                .then(res => (setResponse(res.data)))
-                .then(() => console.log('Successfully received locations from server'))
-                .catch(err => console.log(err))
+                    .post('http://localhost:4000/findNearest', { "latitude": latitude, "longitude": longitude })
+                    .then(res => (setResponse(res.data)))
+                    .then(() => console.log('Successfully received locations from server'))
+                    .catch(err => console.log(err))
             }
             findNearest()
         }
     }, [longitude, setLocations])
-
-    //Render locationCard components with stuff from locations object
-    useEffect(() => {
-        if (Object.keys(locations).length > 1) {
-            console.log("HOOO", locations)
-        }
-    }, [locations])
 
     /*
     If locations were successfully loaded, return a CardDeck of Card components generated
@@ -53,11 +46,11 @@ export const DeckOfLocations: React.FC = () => {
     if ((Object).keys(locations).length > 0) {
         return (
             <div>
-                <CardDeck> 
-                    {Object.keys(locations).map(function(key, index) { 
-                        return( 
+                <CardDeck>
+                    {Object.keys(locations).map(function (key, index) {
+                        return (
                             <GymCard key={index}
-                                locationName={key.replace("-", " ")} 
+                                locationName={key.replace("-", " ")}
                                 locationURL={locations[key].url}
                             />
                         )
