@@ -1,21 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
-import {Gym} from './components/locationCard'
+import {DeckOfLocations} from './components/deck'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { CardDeck } from 'react-bootstrap';
 
 ReactDOM.render(
-  <div>
-    <Gym 
-      // lastFetch={"Recently"} 
-      locationName={"Cicero"} 
-      locationURL={"http://localhost:4000/cicero"}
-    />,
-    <Gym 
-    // lastFetch={"Recently"} 
-    locationName={"Forest Park"} 
-    locationURL={"http://localhost:4000/forest-park"}
-    />
-</div>, 
-  document.getElementById('root')
+  //Deck of cards with location data from card components gets rendered.
+  <DeckOfLocations />, document.getElementById('root')
 );

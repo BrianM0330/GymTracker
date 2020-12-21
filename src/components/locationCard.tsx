@@ -1,5 +1,6 @@
 import * as React from "react"
 import {useState, useEffect} from "react"
+import {Card} from 'react-bootstrap'
 import axios from 'axios'
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
     locationURL: string,
 }
 
-export const Gym: React.FC<Props> = (props) => {
+export const GymCard: React.FC<Props> = (props) => {
     const [count, setCount] = useState<number>()
     const [fetchTime, setFetchTime] = useState<string>()
     const [percentCapacity, setPercentCapacity] = useState<number>()
@@ -28,14 +29,11 @@ export const Gym: React.FC<Props> = (props) => {
     }, [])
 
     return (
-        <div>
-            <h2>{props.locationName} - {percentCapacity}%</h2>
-            <div># of people: {count}</div>
-            <div>Last checked: {fetchTime}</div>
-            <br/>
-            <div> 
-                Current Hours<br/>{hoursOpen}
-            </div>
-        </div>
+        <Card>
+            <Card.Title>{props.locationName}: {count}</Card.Title>
+            <Card.Subtitle>Last checked at {fetchTime}</Card.Subtitle>
+            <Card.Body>This location currently has {count} people ({percentCapacity}%)</Card.Body>
+            <Card.Body>{hoursOpen}</Card.Body>
+        </Card>
     )
 }
