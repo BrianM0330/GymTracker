@@ -5,18 +5,41 @@ import cors from "cors"
 import axios from "axios"
 import urlsJson from './pf-api-urls.json'
 import {ApolloServer} from "apollo-server-express"
+import {graphqlHTTP} from 'express-graphql'
 import {buildSchema} from "type-graphql"
 import { popDataResolver } from "./resolvers/popDataResolver"
 
 (async () => {
     const app = express();
+    await createConnection();
+
+    //Schema created using resolvers
+    const schema = await buildSchema({
+      resolvers: [popDataResolver]
+    })
+
+    const apolloServer = new ApolloServer({
+      schema, 
+      context: ({ req, res }) => ({ req, res }),
+      playground: true,
+      introspection: true
+    });
+    apolloServer.applyMiddleware({app, path:'/graphql'});
+
     app.use(cors())
     app.use(express.json())
+
+    //Enable graphql middleware for browser playground
+    app.use('/graphql',
+            graphqlHTTP({
+              schema: schema,
+              graphiql: true
+            }))
 
     app.get('/:locationName', async function(_req, res) {
       const urlToUse = urlsJson[_req.params.locationName.toLowerCase()].url
                         //locationName.url
-
+ 
       if (urlToUse == undefined) {
         console.log("Invalid location", _req.params.locationName.toLocaleUpperCase(), "entered")
         res.send('This location does not exist')
@@ -32,6 +55,7 @@ import { popDataResolver } from "./resolvers/popDataResolver"
     app.post('/findNearest', function (_req, res) {
       let closestLocations = {}
       let coordinates = _req.body
+      console.log("Received coordinates", coordinates)
       let startingLat = coordinates.latitude
       let startingLong = coordinates.longitude
 
@@ -61,8 +85,6 @@ import { popDataResolver } from "./resolvers/popDataResolver"
       
     })
 
-    await createConnection();
-
     const haversineLocationFormula = (lat1: number, lon1: number, lat2: number, lon2: number) => {
       var radiansLat1 = Math.PI * lat1/180
       var radiansLat2 = Math.PI * lat2/180
@@ -77,19 +99,11 @@ import { popDataResolver } from "./resolvers/popDataResolver"
       return dist
     }
 
-    //initializing apolloserver 
-    const apolloServer = new ApolloServer({
-      schema: await buildSchema({
-        resolvers: [popDataResolver]
-      }),
-      context: ({ req, res }) => ({ req, res })
-    });
-  
-    //use cors to connect to express
-    apolloServer.applyMiddleware({ app, cors: false });
-  
     app.listen(4000, () => {
-      console.log("express server started");
+      console.log(`express server started at ${apolloServer.graphqlPath}`);
     });
+
+    // httpServer.listen({port:4001}, (): void => console.log("GRAPHQL RUNNING"))
+
   })();
   
