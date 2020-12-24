@@ -1,16 +1,16 @@
 import {Resolver, Mutation, Arg, Query, Int} from "type-graphql"
 import { popData } from "../entity/popEntity";
+import { CreateLocationInput } from "./createLocationFields";
 import inputUpdateFields from './inputUpdateFields'
 
 @Resolver()
 export class popDataResolver {
-    today = new Date()
-
-    @Mutation(() => Boolean)
-    async createEntry() {
-        const population_date = this.today
-        await popData.insert({population_date})
-        return true
+//https://codetain.com/blog/implementing-server-side-crud-with-typescript-typeorm-and-graphql
+    @Mutation(() => popData)
+    async createEntry(@Arg("data")data: CreateLocationInput ) {
+        const test = popData.create(data)
+        await test.save()
+        return popData
     }
 
     @Mutation(() => Boolean)

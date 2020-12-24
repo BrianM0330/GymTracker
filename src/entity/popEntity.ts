@@ -1,6 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 import { Field, Int, ObjectType } from "type-graphql";
-import { GraphQLDate } from "graphql-iso-date";
 //Field decorator turns it into a GraphQL object field
 //Column decorator turns it into a DB Column row
 
@@ -11,11 +10,7 @@ export class popData extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Field(() => GraphQLDate)
-  @Column("date", { nullable: true })
-  population_date: Date;
-
-  @Field(() => String)
+  @Field(() => String, {nullable: true})
   @Column("text", { nullable: true })
   location: string;
 

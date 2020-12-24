@@ -1,5 +1,4 @@
 import {Int, InputType, Field} from "type-graphql"
-import { GraphQLDate } from "graphql-iso-date";
 
 //These fields are used for the update query
 @InputType()
@@ -30,7 +29,4 @@ export default class popInput {
 
   @Field(() => Int, {nullable: true})
   population_16: number;
-
-  @Field(() => GraphQLDate, {nullable:true})
-  population_date: Date
 }
