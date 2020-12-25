@@ -15,10 +15,10 @@ export class popDataResolver {
 
     @Mutation(() => Boolean)
     async updateEntry(
-    @Arg('id' ) id: number,
+    @Arg('location') location: string,
     @Arg('input', () => inputUpdateFields) input: inputUpdateFields
     ) {
-        await popData.update({id}, input)
+        await popData.update({location}, input)
         return true
     }
 
