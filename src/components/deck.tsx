@@ -43,13 +43,17 @@ export const DeckOfLocations: React.FC = () => {
     by mapping every object in locations. 
     */
 
+   function clickHandler() {console.log("BUTTON CLICKED")}
+
     if ((Object).keys(locations).length > 0) {
         return (
             <div>
                 <CardDeck>
                     {Object.keys(locations).map(function (key, index) {
                         return (
-                            <GymCard key={index}
+                            <GymCard
+                                key={index}
+                                pageFunction={clickHandler}
                                 locationName={key.replace("-", " ")}
                                 locationURL={locations[key].url}
                             />

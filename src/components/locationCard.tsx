@@ -1,9 +1,10 @@
 import * as React from "react"
 import {useState, useEffect} from "react"
-import {Card} from 'react-bootstrap'
+import {Button, Card} from 'react-bootstrap'
 import axios from 'axios'
 
 interface Props {
+    pageFunction: () => void,
     locationName: string,
     locationURL: string,
 }
@@ -25,11 +26,10 @@ export const GymCard: React.FC<Props> = (props) => {
             setHoursOpen(apiFetch.data.hours.description)
         }
         asyncFetch()
-        // setCount(result.data)
     }, [])
 
     return (
-        <Card>
+        <Card onClick={props.pageFunction} style={{cursor: "pointer"}}>
             <Card.Title>{props.locationName}: {count}</Card.Title>
             <Card.Subtitle>Last checked at {fetchTime}</Card.Subtitle>
             <Card.Body>This location currently has {count} people ({percentCapacity}%)</Card.Body>
