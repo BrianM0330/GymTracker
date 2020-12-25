@@ -34,4 +34,12 @@ export class popDataResolver {
     popHistory() {
         return popData.find()
     }
+
+    //https://typeorm.delightful.studio/classes/_repository_baseentity_.baseentity.html#findone
+    @Query(() => popData)
+    async locationHistory(
+        @Arg('location', () => String) location: string,
+    ) {
+        return popData.findOne({where: {location}})
+    }
 }
