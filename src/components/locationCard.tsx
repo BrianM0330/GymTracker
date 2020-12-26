@@ -2,14 +2,16 @@ import * as React from "react"
 import {useState, useEffect} from "react"
 import {Button, Card} from 'react-bootstrap'
 import axios from 'axios'
+import { useHistory } from "react-router-dom"
 
 interface Props {
-    pageFunction: () => void,
     locationName: string,
     locationURL: string,
 }
 
 export const GymCard: React.FC<Props> = (props) => {
+    const history = useHistory()
+
     const [count, setCount] = useState<number>()
     const [fetchTime, setFetchTime] = useState<string>()
     const [percentCapacity, setPercentCapacity] = useState<number>()
@@ -28,12 +30,19 @@ export const GymCard: React.FC<Props> = (props) => {
         asyncFetch()
     }, [])
 
+    function clickHandler() {
+        console.log("Button clicked")
+        history.push(`/location/${props.locationName.replace(' ', '-')}`)
+    }
+
+
     return (
-        <Card onClick={props.pageFunction} style={{cursor: "pointer"}}>
+        <Card>
             <Card.Title>{props.locationName}: {count}</Card.Title>
             <Card.Subtitle>Last checked at {fetchTime}</Card.Subtitle>
             <Card.Body>This location currently has {count} people ({percentCapacity}%)</Card.Body>
             <Card.Body>{hoursOpen}</Card.Body>
+            <Button onClick={clickHandler}> hi </Button>
         </Card>
     )
 }

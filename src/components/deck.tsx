@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import {useHistory} from 'react-router-dom'
 import { GymCard } from './locationCard'
+import {LocationPage} from './locationPage'
 import axios from 'axios'
 import '../index.css'
 
@@ -7,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { CardDeck } from 'react-bootstrap'
 
 export const DeckOfLocations: React.FC = () => {
+    const history = useHistory()
+
     const [locations, setLocations] = useState({})
     const [latitude, setLatitude] = useState(0)
     const [longitude, setLongitude] = useState(0)
@@ -43,8 +47,11 @@ export const DeckOfLocations: React.FC = () => {
     by mapping every object in locations. 
     */
 
-   function clickHandler() {console.log("BUTTON CLICKED")}
-
+    // function clickHandler() {
+    //     console.log("BUTTON CLICKED")
+    //     history.push('/location')
+    // }
+    
     if ((Object).keys(locations).length > 0) {
         return (
             <div>
@@ -53,7 +60,6 @@ export const DeckOfLocations: React.FC = () => {
                         return (
                             <GymCard
                                 key={index}
-                                pageFunction={clickHandler}
                                 locationName={key.replace("-", " ")}
                                 locationURL={locations[key].url}
                             />
