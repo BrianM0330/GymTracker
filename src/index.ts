@@ -149,7 +149,7 @@ import { popDataResolver } from './resolvers/popDataResolver'
   */
 
     //Scheduled task for fetching data and updating the database with hourly population information
-    cron.schedule('0 0 8-16 * * *', async () => {
+    cron.schedule('0 30 * * * *', async () => {
         console.log(`<------------------------------SCHEDULED TASK-------------------------------------->`)
         console.log(`API data fetched at ${new Date()}`)
         const currentHour: number = new Date().getHours()
