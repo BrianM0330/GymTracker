@@ -24,6 +24,14 @@ export const LocationPage: React.FC<Props> = (props) => {
             query {
                 locationHistory(location: "${props.match.params['name']}")
                 {
+                    population_0
+                    population_1
+                    population_2
+                    population_3
+                    population_4
+                    population_5
+                    population_6
+                    population_7
                     population_8
                     population_9
                     population_10
@@ -33,6 +41,13 @@ export const LocationPage: React.FC<Props> = (props) => {
                     population_14
                     population_15
                     population_16
+                    population_17
+                    population_18
+                    population_19
+                    population_20
+                    population_21
+                    population_22
+                    population_23
                 }
             } 
         `
@@ -44,6 +59,7 @@ export const LocationPage: React.FC<Props> = (props) => {
     
     if ((Object).keys(data).length > 0) {
         console.log(data)
+        console.log(data['population_14'])
         return <div>Placeholder</div>
     }
     else
