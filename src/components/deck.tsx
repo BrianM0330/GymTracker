@@ -46,11 +46,6 @@ export const DeckOfLocations: React.FC = () => {
     If locations were successfully loaded, return a CardDeck of Card components generated
     by mapping every object in locations. 
     */
-
-    // function clickHandler() {
-    //     console.log("BUTTON CLICKED")
-    //     history.push('/location')
-    // }
     
     if ((Object).keys(locations).length > 0) {
         return (
@@ -60,6 +55,7 @@ export const DeckOfLocations: React.FC = () => {
                         return (
                             <GymCard
                                 key={index}
+                                nearbyLocations={locations}
                                 locationName={key.replace("-", " ")}
                                 locationURL={locations[key].url}
                             />

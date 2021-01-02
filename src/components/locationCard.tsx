@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useHistory } from "react-router-dom"
 
 interface Props {
+    nearbyLocations: Object,
     locationName: string,
     locationURL: string,
 }
@@ -31,8 +32,7 @@ export const GymCard: React.FC<Props> = (props) => {
     }, [])
 
     function clickHandler() {
-        console.log("Button clicked")
-        history.push(`/location/${props.locationName.replace(' ', '-')}`)
+        history.push({pathname: `/location/${props.locationName.replace(' ', '-')}`, state: props.nearbyLocations})
     }
 
 
