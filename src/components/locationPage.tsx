@@ -59,7 +59,7 @@ export const LocationPage: React.FC<Props> = (props) => {
                 .then(result => setData(prevState => [...prevState, {[location]: result.data.locationHistory}]))
         }
         
-    }, [props.match.params, setData])
+    }, [props.match.params, props.location.state, setData])
 
     if (data.length === (Object).keys(props.location.state).length+1) {
 

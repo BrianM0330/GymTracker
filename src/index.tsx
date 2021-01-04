@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {DeckOfLocations} from './components/deck'
 import './index.css'

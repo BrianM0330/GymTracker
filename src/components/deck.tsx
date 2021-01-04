@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useHistory} from 'react-router-dom'
 import { GymCard } from './locationCard'
-import {LocationPage} from './locationPage'
 import axios from 'axios'
 import '../index.css'
 
@@ -9,8 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { CardDeck } from 'react-bootstrap'
 
 export const DeckOfLocations: React.FC = () => {
-    const history = useHistory()
-
     const [locations, setLocations] = useState({})
     const [latitude, setLatitude] = useState(0)
     const [longitude, setLongitude] = useState(0)
@@ -40,7 +36,7 @@ export const DeckOfLocations: React.FC = () => {
             }
             findNearest()
         }
-    }, [longitude, setLocations])
+    }, [longitude, latitude, setLocations])
 
     /*
     If locations were successfully loaded, return a CardDeck of Card components generated
