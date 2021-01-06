@@ -14,7 +14,7 @@ export const LocationPage: React.FC<Props> = (props) => {
     useEffect(() => {
 
         const client = new ApolloClient({
-            uri: `http://localhost:${PORT}/graphql`,
+            uri: `/graphql`,
             cache: new InMemoryCache({
                 addTypename: false //Removes '__typename' key from the query result
             })

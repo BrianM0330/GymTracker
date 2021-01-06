@@ -30,7 +30,7 @@ export const DeckOfLocations: React.FC = () => {
         if (latitude && longitude) {
             const findNearest = () => {
                 axios
-                    .post(`http://localhost:${PORT}/findNearest`, { "latitude": latitude, "longitude": longitude })
+                    .post(`/findNearest`, { "latitude": latitude, "longitude": longitude })
                     .then(res => (setResponse(res.data)))
                     .then(() => console.log('Successfully received locations from server'))
                     .catch(err => console.log(err))

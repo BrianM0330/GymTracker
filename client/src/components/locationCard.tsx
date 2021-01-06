@@ -23,7 +23,7 @@ export const GymCard: React.FC<Props> = (props) => {
         var d = new Date()
         setFetchTime(d.toLocaleTimeString('en-US'))
         const asyncFetch = async () => {
-            const apiFetch = await axios.get(`http://localhost:${PORT}/api/${props.locationName.replace(" ", "-").toLocaleLowerCase()}`)
+            const apiFetch = await axios.get(`/api/${props.locationName.replace(" ", "-").toLocaleLowerCase()}`)
             setCount(apiFetch.data.occupancy.current)
             setPercentCapacity(apiFetch.data.occupancy.percentage)
             setHoursOpen(apiFetch.data.hours.description)
