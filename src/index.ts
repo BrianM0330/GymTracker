@@ -12,6 +12,7 @@ import { buildSchema } from 'type-graphql'
 import { createConnection } from 'typeorm'
 import { request, gql } from 'graphql-request'
 import { popDataResolver } from './resolvers/popDataResolver'
+import path from 'path'
 
 (async () => {
     const app = express()
@@ -42,9 +43,15 @@ import { popDataResolver } from './resolvers/popDataResolver'
             graphiql: true,
         })
     )
+    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+    //@ts-expect-error
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+    })
 
     //Paramaterized GET endpoint used for returning Planet Fitness API data to the front end
-    app.get('/:locationName', async function (_req, res) {
+    app.get('/api/:locationName', async function (_req, res) {
         const urlToUse = urlsJson[_req.params.locationName.toLowerCase()].url //locationName.url
 
         if (urlToUse == undefined) {
