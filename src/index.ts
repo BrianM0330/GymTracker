@@ -15,6 +15,7 @@ import path from 'path'
 
 (async () => {
     var cors = require('cors')
+    var relic = require('newrelic')
     const app = express()
     const PORT = process.env.PORT || 4000
 
