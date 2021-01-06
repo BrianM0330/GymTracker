@@ -186,6 +186,8 @@ import path from 'path'
             else { console.log(`${key} could not be fetched at this time. Location is likely closed.`) }
         }
         console.log(`Cron task successfully updated all locations at ${currentHour} PM`)
+    }, {
+        timezone: "America/Chicago"
     })
 
     //Mutation for re-initializing the database
