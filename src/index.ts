@@ -15,7 +15,6 @@ import path from 'path'
 
 (async () => {
     var cors = require('cors')
-    var relic = require('newrelic')
     const app = express()
     const PORT = process.env.PORT || 4000
 
@@ -187,6 +186,8 @@ import path from 'path'
         }
         console.log(`Cron task successfully updated all locations at ${currentHour} PM`)
     })
+    //@ts-expect-error
+    var relic = require('newrelic')
 
     //Mutation for re-initializing the database
     //const gqlQuery = gql`mutation{createEntry(data:{location:"${key}"}){location}}`
