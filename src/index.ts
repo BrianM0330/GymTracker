@@ -1,5 +1,4 @@
 import express from 'express'
-import cors from 'cors'
 import axios from 'axios'
 import cron from 'node-cron'
 import urlsJson from './pf-api-urls.json'
@@ -15,7 +14,10 @@ import { popDataResolver } from './resolvers/popDataResolver'
 import path from 'path'
 
 (async () => {
+    var cors = require('cors')
     const app = express()
+
+    app.use(cors())
     await createConnection()
 
     //Schema created using resolvers
@@ -32,7 +34,6 @@ import path from 'path'
     })
     apolloServer.applyMiddleware({ app, path: '/graphql' })
 
-    app.use(cors())
     app.use(express.json())
 
     //Enable graphql middleware for browser playground
