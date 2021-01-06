@@ -8,12 +8,13 @@ import '../index.css'
 type Props = RouteComponentProps<{}, StaticContext, {from: {pathname: String}}>
 
 export const LocationPage: React.FC<Props> = (props) => {
+    const PORT = process.env.PORT || 4000
     const [data, setData] = useState([{}])
 
     useEffect(() => {
 
         const client = new ApolloClient({
-            uri: 'http://localhost:4000/graphql',
+            uri: `http://localhost:${PORT}/graphql`,
             cache: new InMemoryCache({
                 addTypename: false //Removes '__typename' key from the query result
             })
