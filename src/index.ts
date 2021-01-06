@@ -16,6 +16,7 @@ import path from 'path'
 (async () => {
     var cors = require('cors')
     const app = express()
+    const PORT = process.env.PORT || 4000
 
     app.use(cors())
     await createConnection()
@@ -175,7 +176,7 @@ import path from 'path'
                     })
                 }`
 
-                const gqlResponse = await request('http://localhost:4000/graphql',gqlQuery)
+                const gqlResponse = await request(`http://localhost:${PORT}/graphql`,gqlQuery)
 
                 if (gqlResponse)
                     console.log(`Successful update on ${key} for ${currentHour} PM`)
@@ -189,7 +190,7 @@ import path from 'path'
     //Mutation for re-initializing the database
     //const gqlQuery = gql`mutation{createEntry(data:{location:"${key}"}){location}}`
 
-    app.listen(process.env.PORT || 4000, () => {
-        console.log(`express server started at ${apolloServer.graphqlPath}`)
+    app.listen(PORT, () => {
+        console.log(`express server started at ${apolloServer.graphqlPath} on port ${PORT}`)
     })
 })()
