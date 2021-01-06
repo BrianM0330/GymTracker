@@ -1,0 +1,237 @@
+{
+  "addison": {
+    "latitude": 41.936725,
+    "longitude": -88.001890,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:3cb3adc5-c284-11e8-8732-bdf695c61eb7"
+  },
+  "arlington-heights": {
+    "latitude": 42.115992,
+    "longitude": -87.985340,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:088d8ac0-c286-11e8-8732-bdf695c61eb7"
+  },
+  "aurora": {
+    "latitude": 41.775925,
+    "longitude": -88.317620,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:65be9df6-c285-11e8-8732-bdf695c61eb7"
+  },
+  "avondale": {
+    "latitude": 41.937845,
+    "longitude": -87.727588,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:e145592d-c284-11e8-8732-bdf695c61eb7"
+  },
+  "back-of-the-yards": {
+    "latitude": 41.809671,
+    "longitude": -87.674978,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:5bcf3ddd-c284-11e8-8732-bdf695c61eb7"
+  },
+  "bloomingdale": {
+    "latitude": 41.949979 ,
+    "longitude": -88.120591,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:43553821-c284-11e8-8732-bdf695c61eb7"
+  },
+  "bolingbrook": {
+    "latitude": 41.698901,
+    "longitude": -88.126703,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:078a9927-c286-11e8-999a-a511d4663031"
+  },
+  "bridgeview": {
+    "latitude": 41.732847,
+    "longitude": -87.797603,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:26be932a-fc1f-11e9-8674-4d16b06c27ce"
+  },
+  "calumet-park": {
+    "latitude": 41.657370,
+    "longitude": -87.658152,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:fd07b66d-c285-11e8-8732-bdf695c61eb7"
+  },
+  "carol-stream": {
+    "latitude": 41.889258,
+    "longitude": -88.093093,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:0f722815-c582-11e8-961f-8d6ab0ce031b"
+  },
+  "chi-47th": {
+    "latitude": 41.809158,
+    "longitude": -87.596208,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:ec5963ac-c285-11e8-999a-a511d4663031"
+  },
+  "chi-ave-o": {
+    "latitude": 41.681590,
+    "longitude": -87.537714,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:2741b868-c284-11e8-999a-a511d4663031"
+  },
+  "chi-broadway": {
+    "latitude": 41.948321,
+    "longitude": -87.650252,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:e0ab6dec-c285-11e8-999a-a511d4663031"
+  },
+  "chi-chatham": {
+    "latitude": 41.743102,
+    "longitude": -87.632014,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:e9039da4-c284-11e8-999a-a511d4663031"
+  },
+  "chi-evergreen": {
+    "latitude": 41.722579,
+    "longitude": -87.682095,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:d3e9b3dd-c284-11e8-999a-a511d4663031"
+  },
+  "chi-foster": {
+    "latitude": 41.974537,
+    "longitude": -87.809529,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:083cf938-c286-11e8-999a-a511d4663031"
+  },
+  "chi-pullman": {
+    "latitude": 41.702204,
+    "longitude": -87.590935,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:30cc31e9-c284-11e8-999a-a511d4663031"
+  },
+  "cicero": {
+    "latitude": 41.848129,
+    "longitude": -87.744487,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:c202927e-c284-11e8-999a-a511d4663031"
+  },
+  "crestwood": {
+    "latitude": 41.652284,
+    "longitude": -87.743738,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:f1579e44-c285-11e8-999a-a511d4663031"
+  },
+  "deerfield": {
+    "latitude": 42.154424,
+    "longitude": -87.837061,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:7a7b465e-e50f-11e9-80b3-a9a751f98bc5"
+  },
+  "des-plaines": {
+    "latitude": 42.026117,
+    "longitude": -87.893857,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:370f2345-afde-11e9-851b-2d3125a1d587"
+  },
+  "elk-grove": {
+    "latitude": 42.001437,
+    "longitude": -88.004618,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:c5bfa468-c285-11e8-8732-bdf695c61eb7"
+  },
+  "elmwood-park": {
+    "latitude": 41.927380,
+    "longitude": -87.806699,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:c253bf45-c284-11e8-8732-bdf695c61eb7"
+  },
+  "evanston": {
+    "latitude": 42.031557,
+    "longitude": -87.707403,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:f65dbd52-c284-11e8-8732-bdf695c61eb7"
+  },
+  "forest-park": {
+    "latitude": 41.864842,
+    "longitude": -87.812195,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:120a64e0-c285-11e8-999a-a511d4663031"
+  },
+  "fox-valley": {
+    "latitude": 41.764864,
+    "longitude": -88.208232,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:211bd0fc-c285-11e8-999a-a511d4663031"
+  },
+  "hickory-hills": {
+    "latitude": 41.718495,
+    "longitude": -87.817818,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:5dc7e3d7-c285-11e8-8732-bdf695c61eb7"
+  },
+  "joliet": {
+    "latitude": 41.576348,
+    "longitude": -88.157368,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:d02f1cd6-c284-11e8-999a-a511d4663031"
+  },
+  "lansing": {
+    "latitude": 41.574665,
+    "longitude": -87.558039,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:f106beaa-c285-11e8-8732-bdf695c61eb7"
+  },
+  "lincolnwood": {
+    "latitude": 42.005035,
+    "longitude": -87.714301,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:679950e5-c285-11e8-999a-a511d4663031"
+  },
+  "little-village": {
+    "latitude": 41.853262,
+    "longitude": -87.690160,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:43e01302-c284-11e8-8732-bdf695c61eb7"
+  },
+  "lockport": {
+    "latitude": 41.593280,
+    "longitude": -88.040637,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:b89b1430-c285-11e8-8732-bdf695c61eb7"
+  },
+  "logan-square": {
+    "latitude": 41.931391,
+    "longitude": -87.697168,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:439a08cb-c284-11e8-999a-a511d4663031"
+  },
+  "melrose-park": {
+    "latitude": 41.909434,
+    "longitude": -87.883689,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:aaa26139-c284-11e8-999a-a511d4663031"
+  },
+  "morton-grove": {
+    "latitude": 42.040807,
+    "longitude": -87.809338,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:d815f7fc-c284-11e8-8732-bdf695c61eb7"
+  },
+  "naperville": {
+    "latitude": 41.794814,
+    "longitude": -88.125946,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:4871a894-c284-11e8-999a-a511d4663031"
+  },
+  "oak-lawn": {
+    "latitude": 41.719647,
+    "longitude": -87.738973,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:e36c093a-c284-11e8-999a-a511d4663031"
+  },
+  "palatine": {
+    "latitude": 42.118836,
+    "longitude": -88.040281,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:10cde4ac-afde-11e9-8483-79a8b93e9a36"
+  },
+  "plainfield": {
+    "latitude": 41.639997,
+    "longitude": -88.200685,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:15428fbf-c286-11e8-999a-a511d4663031"
+  },
+  "pulaski": {
+    "latitude": 41.814142,
+    "longitude": -87.722142,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:e2554208-c284-11e8-999a-a511d4663031"
+  },
+  "schamburg": {
+    "latitude": 42.026001,
+    "longitude": -88.148878,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:b31f58f8-a275-11e9-a63a-0be8d9ce0518"
+  },
+  "streeterville": {
+    "latitude": 41.891278,
+    "longitude": -87.620415,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:42fb3c05-c285-11e8-999a-a511d4663031"
+  },
+  "tinley-park": {
+    "latitude": 41.598626,
+    "longitude": -87.795064,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:67dd383a-c285-11e8-8732-bdf695c61eb7"
+  },
+  "villa-park": {
+    "latitude": 41.859921,
+    "longitude": -87.986077,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:da258169-c285-11e8-8732-bdf695c61eb7"
+  },
+  "washington-square": {
+    "latitude": 41.909524,
+    "longitude": -87.749055,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:d5a1c320-c284-11e8-999a-a511d4663031"
+  },
+  "wheaton": {
+    "latitude": 41.837371,
+    "longitude": -88.103178,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:001bad32-c286-11e8-8732-bdf695c61eb7"
+  },
+  "woodridge": {
+    "latitude": 41.729713,
+    "longitude": -88.029078,
+    "url": "https://www.planetfitness.com/gyms/pfx/api/clubs/pfx:clubs:9382c63b-c285-11e8-8732-bdf695c61eb7"
+  }
+}
