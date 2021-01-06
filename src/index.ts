@@ -1,3 +1,4 @@
+require('newrelic')
 import express from 'express'
 import axios from 'axios'
 import cron from 'node-cron'
@@ -186,8 +187,6 @@ import path from 'path'
         }
         console.log(`Cron task successfully updated all locations at ${currentHour} PM`)
     })
-    //@ts-expect-error
-    var relic = require('newrelic')
 
     //Mutation for re-initializing the database
     //const gqlQuery = gql`mutation{createEntry(data:{location:"${key}"}){location}}`
