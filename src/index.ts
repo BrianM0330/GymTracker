@@ -1,4 +1,3 @@
-require('newrelic')
 import express from 'express'
 import axios from 'axios'
 import cron from 'node-cron'
@@ -19,7 +18,7 @@ import sslRedirect from 'heroku-ssl-redirect'
     const PORT = process.env.PORT || 4000
     var cors = require('cors')
     const app = express()
-    
+
     app.use(sslRedirect())
 
     app.use(cors())
