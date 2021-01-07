@@ -13,11 +13,14 @@ import { createConnection } from 'typeorm'
 import { request, gql } from 'graphql-request'
 import { popDataResolver } from './resolvers/popDataResolver'
 import path from 'path'
+import sslRedirect from 'heroku-ssl-redirect'
 
 (async () => {
+    const PORT = process.env.PORT || 4000
     var cors = require('cors')
     const app = express()
-    const PORT = process.env.PORT || 4000
+    
+    app.use(sslRedirect())
 
     app.use(cors())
     await createConnection()

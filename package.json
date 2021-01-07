@@ -32,6 +32,7 @@
     "graphql": "^15.3.0",
     "graphql-iso-date": "^3.6.1",
     "graphql-request": "^3.4.0",
+    "heroku-ssl-redirect": "^0.1.1",
     "http": "0.0.1-security",
     "newrelic": "^7.1.0",
     "node-cron": "^2.0.3",
