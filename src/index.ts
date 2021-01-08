@@ -163,7 +163,7 @@ import sslRedirect from 'heroku-ssl-redirect'
     //Scheduled task for fetching data and updating the database with hourly population information
     cron.schedule('0 30 * * * *', async () => {
         const currentHour: number = new Date().getHours()
-        console.log(`<------------------------------SCHEDULED TASK: ${(currentHour-8)}-------------------------------------->`)
+        console.log(`<------------------------------SCHEDULED TASK: ${currentHour}-------------------------------------->`)
 
         for (var key in urlsJson) {
             let endpoint = urlsJson[key].url
@@ -174,21 +174,21 @@ import sslRedirect from 'heroku-ssl-redirect'
                 `mutation {
                     updateEntry(
                     location: "${key}",
-                    input: {population_${(currentHour-8)}: ${apiResult.data.occupancy.current}
+                    input: {population_${currentHour}: ${apiResult.data.occupancy.current}
                     })
                 }`
 
                 const gqlResponse = await request(`https://gym-tracker2.herokuapp.com/graphql`,gqlQuery)
 
                 if (gqlResponse)
-                    console.log(`Successful update on ${key} for ${currentHour-8}:30`)
+                    console.log(`Successful update on ${key} for ${currentHour}:30`)
 
                 console.log(`Query for ${key}: \n ${gqlQuery}`)
 
             } 
             else { console.log(`${key} could not be fetched at this time. Location is likely closed.`) }
         }
-        console.log(`Cron task successfully updated all locations at ${currentHour-8}:30`)
+        console.log(`Cron task successfully updated all locations at ${currentHour}:30`)
     })
 
     //Mutation for re-initializing the database
