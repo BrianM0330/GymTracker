@@ -179,7 +179,7 @@ import sslRedirect from 'heroku-ssl-redirect'
                     })
                 }`
 
-                const gqlResponse = await request(`http://localhost:${PORT}/graphql`,gqlQuery)
+                const gqlResponse = await request(`https://gym-tracker2.herokuapp.com/graphql`,gqlQuery)
 
                 if (gqlResponse)
                     console.log(`Successful update on ${key} for ${currentHour} PM`)
