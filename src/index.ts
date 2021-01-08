@@ -162,8 +162,8 @@ import sslRedirect from 'heroku-ssl-redirect'
 
     //Scheduled task for fetching data and updating the database with hourly population information
     cron.schedule('0 30 * * * *', async () => {
-        console.log(`<------------------------------SCHEDULED TASK-------------------------------------->`)
         const currentHour: number = new Date().getHours()
+        console.log(`<------------------------------SCHEDULED TASK: ${(currentHour-8)}-------------------------------------->`)
 
         for (var key in urlsJson) {
             let endpoint = urlsJson[key].url
