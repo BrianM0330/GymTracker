@@ -124,7 +124,7 @@ export const LocationPage: React.FC<Props> = (props) => {
             yAxis: {
                 title: 'Population count',
                 min: 0,
-                max: 50
+                max: 100
             },
             xAxis: {
                 title: 'Times',
