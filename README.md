@@ -19,7 +19,7 @@ Frontend
 * TOAST UI
 
 ## Where is the data coming from?
-I'm getting this data directly from the Planet Fitness API. The API is queried every 30 minutes [by the nodeJS back end](https://github.com/BrianM0330/GymTracker/blob/main/src/index.ts) with a cron job. On every successful GET, the data is written to a SQLite database via graphQL. The cron job gets the URLs from [a JSON file](https://github.com/BrianM0330/GymTracker/blob/main/src/pf-api-urls.json) and runs a GET request on every location using that URL.
+I'm getting this data directly from the Planet Fitness API. The API is queried every 30 minutes [by the nodeJS back end](https://github.com/BrianM0330/GymTracker/blob/main/src/index.ts) with a cron job. The cron job gets the URLs from [a JSON file](https://github.com/BrianM0330/GymTracker/blob/main/src/pf-api-urls.json) and runs a GET request on every location using that URL. On every successful GET, the data is written to a SQLite database via graphQL. 
 
 ## Why TypeScript?
 To practice! In fact, the entirety of this project was just to practice full stack development. It started as a very simple web scraper in Python, but I wanted to do a little more and really get my feet wet with web development. This project could have very easily been made with raw Javascript and React, but I really wanted to get familiar with Typescript and GraphQL on top of the base of JS and React. Luckily it worked really well! My Typescript is far from perfect and the GraphQL feels a bit redundant, but I'm sure that if I ever expand the project having GQL and TypeORM set up will make it a breeze. 
