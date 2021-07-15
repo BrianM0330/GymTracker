@@ -8,6 +8,7 @@ import { CardDeck } from 'react-bootstrap'
 
 export const DeckOfLocations: React.FC = () => {
     const PORT = process.env.PORT || 4000
+    const [locationPermission, setLocationPermission] = useState(true)
     const [locations, setLocations] = useState({})
     const [latitude, setLatitude] = useState(0)
     const [longitude, setLongitude] = useState(0)
@@ -23,20 +24,38 @@ export const DeckOfLocations: React.FC = () => {
         setLocations(data)
     }
 
+    function checkLocationPermissions() {
+        navigator.permissions
+            .query({name: "geolocation"})
+            .then(res => {
+                res.state === 'granted' 
+                ? setLocationPermission(true) 
+                : setLocationPermission(false)
+            })
+            .catch(err => console.log(err))
+    }
+
     // When both coordinates are loaded, call server endpoint to get closest locations using the distance formula.
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(setLocation)
+        if (navigator.geolocation) {
+            checkLocationPermissions()
 
-        if (latitude && longitude) {
-            const findNearest = () => {
-                axios
-                    .post(`/findNearest`, { "latitude": latitude, "longitude": longitude })
-                    .then(res => (setResponse(res.data)))
-                    .then(() => console.log('Successfully received locations from server'))
-                    .catch(err => console.log(err))
+            if (locationPermission) {
+                navigator.geolocation.getCurrentPosition(setLocation)
+
+                if (latitude && longitude) {
+                    const findNearest = () => {
+                        axios
+                            .post(`localhost:4000/findNearest`, { "latitude": latitude, "longitude": longitude })
+                            .then(res => (setResponse(res.data)))
+                            .then(() => console.log('Successfully received locations from server'))
+                            .catch(err => console.log(err))
+                    }
+                    findNearest()
+                }                
             }
-            findNearest()
         }
+
     }, [longitude, latitude, setLocations])
 
     /*
@@ -63,10 +82,19 @@ export const DeckOfLocations: React.FC = () => {
             </div>
         )
     }
+
+    else if (locationPermission === false) {
+        return(
+            <div>
+                Currently only works with location permissions enabled. Don't worry! I'm just using it to search for nearby locations, no weird stuff is going on with your geolocation.
+            </div>
+        )
+    }
+
     else {
         return (
             <div>
-                LOADING PLACEHOLDER
+                There are no locations nearby or the app was unable to connect
             </div>
         )
     }
