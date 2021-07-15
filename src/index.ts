@@ -1,5 +1,6 @@
 import express from 'express'
 import axios from 'axios'
+import cors from 'cors'
 import cron from 'node-cron'
 import urlsJson from './pf-api-urls.json'
 
@@ -16,12 +17,16 @@ import sslRedirect from 'heroku-ssl-redirect'
 
 (async () => {
     const PORT = process.env.PORT || 4000
-    var cors = require('cors')
     const app = express()
 
-    app.use(sslRedirect())
+    const allowedOrigins = ['http://localhost:3000'];
 
-    app.use(cors())
+    const options: cors.CorsOptions = {
+        origin: allowedOrigins
+    };
+
+    app.use(cors(options))
+    app.use(sslRedirect())
     await createConnection()
 
     //Schema created using resolvers
