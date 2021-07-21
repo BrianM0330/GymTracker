@@ -1,6 +1,6 @@
 # Population Tracker
 
-This is a React web application made to monitor population at user's nearby Planet Fitness locations. I was inspired to make it because during the COVID-19 lockdown my primary gym shut down indefinitely, and I had to find a way to get to the gym at '*safe*' times. Unfortunately, Planet Fitness (at the time) didn't have any kind of population tracking, so I made this!
+This is a React web application made to monitor population at user's nearby Planet Fitness locations. I was inspired to make it because during the COVID-19 lockdown my primary gym shut down indefinitely, and I had to find a way to get to the gym at '*safe*' times. Unfortunately, Planet Fitness (at the time) didn't have any kind of population tracking, so I made this! Fortunately, they implemented their own population tracking a few months after I made this so my app is useless now. Do whatever you want with this!
 
 The website uses your current location to locate any nearby chains and allows you to view information relevant to that location.
 
