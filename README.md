@@ -4,7 +4,7 @@ This is a React web application made to monitor population at user's nearby Plan
 
 The website uses your current location to locate any nearby chains and allows you to view information relevant to that location.
 
-## Technologies Used !!
+## Technologies Used ##
 Backend
 * Express
 * Cron
