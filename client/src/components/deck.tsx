@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import { GymCard } from './locationCard'
 import axios from 'axios'
 import '../index.css'
@@ -8,55 +8,42 @@ import { CardDeck } from 'react-bootstrap'
 
 export const DeckOfLocations: React.FC = () => {
     const PORT = process.env.PORT || 4000
-    const [locationPermission, setLocationPermission] = useState(true)
     const [locations, setLocations] = useState({})
-    const [latitude, setLatitude] = useState(0)
-    const [longitude, setLongitude] = useState(0)
-
-    //Helper function to set coordinates using state
-    function setLocation(data) {
-        setLatitude(data.coords.latitude)
-        setLongitude(data.coords.longitude)
-    }
+    const [userPosition, setUserPosition] = useState({lat: 0, lon: 0})
 
     //Callback fuunction for getCurrentPosition
     function setResponse(data) {
         setLocations(data)
     }
 
-    function checkLocationPermissions() {
-        navigator.permissions
-            .query({name: "geolocation"})
-            .then(res => {
-                res.state === 'granted' 
-                ? setLocationPermission(true) 
-                : setLocationPermission(false)
-            })
-            .catch(err => console.log(err))
-    }
-
     // When both coordinates are loaded, call server endpoint to get closest locations using the distance formula.
     useEffect(() => {
         if (navigator.geolocation) {
-            checkLocationPermissions()
 
-            if (locationPermission) {
-                navigator.geolocation.getCurrentPosition(setLocation)
+            navigator.geolocation.getCurrentPosition((pos) =>{
 
-                if (latitude && longitude) {
-                    const findNearest = () => {
-                        axios
-                            .post(`findNearest`, { "latitude": latitude, "longitude": longitude })
-                            .then(res => (setResponse(res.data)))
-                            .then(() => console.log('Successfully received locations from server'))
-                            .catch(err => console.log(err))
-                    }
-                    findNearest()
-                }                
-            }
+                const newUserPos = { 
+                    lat: pos.coords.latitude,
+                    lon: pos.coords.longitude,
+                };
+
+                setUserPosition(newUserPos) // store data in usestate
+            });
         }
+    }, [])
 
-    }, [longitude, latitude, setLocations])
+    useEffect(() => {
+        if (userPosition.lat != 0) {
+            const findNearest = () => {
+                axios
+                    .post(`/findNearest`, { "latitude": userPosition.lat, "longitude": userPosition.lon })
+                    .then(res => (setResponse(res.data)))
+                    .then(() => console.log('Successfully received locations from API'))
+                    .catch(err => console.log(err))
+            }
+            findNearest()
+        }                
+    }, [userPosition])
 
     /*
     If locations were successfully loaded, return a CardDeck of Card components generated
@@ -79,14 +66,6 @@ export const DeckOfLocations: React.FC = () => {
                     })
                     }
                 </CardDeck>
-            </div>
-        )
-    }
-
-    else if (locationPermission === false) {
-        return(
-            <div>
-                Currently only works with location permissions enabled. Don't worry! I'm just using it to search for nearby locations, no weird stuff is going on with your geolocation.
             </div>
         )
     }
