@@ -32,7 +32,7 @@ export const GymCard: React.FC<Props> = (props) => {
     }, [setCount, setFetchTime, setPercentCapacity, setHoursOpen])
 
     function clickHandler() {
-        history.push({pathname: `http://localhost:4000/location/${props.locationName.replace(' ', '-')}`, state: props.nearbyLocations})
+        history.push({pathname: `/location/${props.locationName.replace(' ', '-')}`, state: props.nearbyLocations})
     }
 
 
