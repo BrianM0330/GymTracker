@@ -11,7 +11,6 @@ interface Props {
 }
 
 export const GymCard: React.FC<Props> = (props) => {
-    const PORT = process.env.PORT || 4000
     const history = useHistory()
 
     const [count, setCount] = useState<number>()
@@ -29,7 +28,7 @@ export const GymCard: React.FC<Props> = (props) => {
             setHoursOpen(apiFetch.data.hours.description)
         }
         asyncFetch()
-    }, [setCount, setFetchTime, setPercentCapacity, setHoursOpen])
+    }, [])
 
     function clickHandler() {
         history.push({pathname: `/location/${props.locationName.replace(' ', '-')}`, state: props.nearbyLocations})
@@ -37,19 +36,13 @@ export const GymCard: React.FC<Props> = (props) => {
 
 
     return (
-        <Card 
         //@ts-ignore
-        border={percentCapacity >= 30 ? "danger" : "success"}
-        >
+        <Card border={percentCapacity >= 30 ? "danger" : "success"}>
             <Card.Title>{props.locationName}: {count}</Card.Title>
             <Card.Subtitle>Last checked at {fetchTime}</Card.Subtitle>
             <Card.Body>This location currently has {count} people ({percentCapacity}%)</Card.Body>
             <Card.Body>{hoursOpen}</Card.Body>
-            <Button 
-            onClick={clickHandler}
-            > 
-            View Details 
-            </Button>
+            <Button onClick={clickHandler}>View Details</Button>
         </Card>
     )
 }
