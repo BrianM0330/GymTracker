@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from 'react';
+import React, { useEffect, useState} from 'react';
 import { GymCard } from './locationCard'
 import axios from 'axios'
 import '../index.css'
@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { CardDeck } from 'react-bootstrap'
 
 export const DeckOfLocations: React.FC = () => {
-    const PORT = process.env.PORT || 4000
     const [locations, setLocations] = useState({})
     const [userPosition, setUserPosition] = useState({lat: 0, lon: 0})
 
