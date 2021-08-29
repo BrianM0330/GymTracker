@@ -7,39 +7,6 @@ import '../index.css'
 
 type Props = RouteComponentProps<{}, StaticContext, {from: {pathname: String}}>
 
-const _24_hour_data = gql
-`
-    query {
-        locationHistory(location: "${location}")
-        {
-            population_0
-            population_1
-            population_2
-            population_3
-            population_4
-            population_5
-            population_6
-            population_7
-            population_8
-            population_9
-            population_10
-            population_11
-            population_12
-            population_13
-            population_14
-            population_15
-            population_16
-            population_17
-            population_18
-            population_19
-            population_20
-            population_21
-            population_22
-            population_23
-        }
-    } 
-`
-
 export const LocationPage: React.FC<Props> = (props) => {
     const [data, setData] = useState([{}])
 
@@ -53,6 +20,38 @@ export const LocationPage: React.FC<Props> = (props) => {
         })
 
         for (let location in props.location.state) {
+            const _24_hour_data = gql
+                `
+                    query {
+                        locationHistory(location: "${location}")
+                        {
+                            population_0
+                            population_1
+                            population_2
+                            population_3
+                            population_4
+                            population_5
+                            population_6
+                            population_7
+                            population_8
+                            population_9
+                            population_10
+                            population_11
+                            population_12
+                            population_13
+                            population_14
+                            population_15
+                            population_16
+                            population_17
+                            population_18
+                            population_19
+                            population_20
+                            population_21
+                            population_22
+                            population_23
+                        }
+                    } 
+                `
             client
                 .query({query: _24_hour_data})
                 .then(result => setData(prevState => [...prevState, {[location]: result.data.locationHistory}]))
