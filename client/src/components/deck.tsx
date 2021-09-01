@@ -9,10 +9,12 @@ import { CardDeck } from 'react-bootstrap'
 export const DeckOfLocations: React.FC = () => {
     const [locations, setLocations] = useState({})
     const [userPosition, setUserPosition] = useState({lat: 0, lon: 0})
+    const [loaded, setLoaded] = useState(false)
 
     //Callback fuunction for getCurrentPosition
     function setResponse(data) {
         setLocations(data)
+        setLoaded(true)
     }
 
     // When both coordinates are loaded, call server endpoint to get closest locations using the distance formula.
@@ -33,12 +35,9 @@ export const DeckOfLocations: React.FC = () => {
 
     useEffect(() => {
         if (userPosition.lat != 0) {
-            const findNearest = () => {
-                axios
-                    .post(`/findNearest`, { "latitude": userPosition.lat, "longitude": userPosition.lon })
-                    .then(res => (setResponse(res.data)))
-                    .then(() => console.log('Successfully received locations from API'))
-                    .catch(err => console.log(err))
+            const findNearest = async () => {
+                const locationResponse = await axios.post(`/findNearest`, { "latitude": userPosition.lat, "longitude": userPosition.lon })
+                setResponse(locationResponse.data)
             }
             findNearest()
         }                
@@ -49,7 +48,7 @@ export const DeckOfLocations: React.FC = () => {
     by mapping every object in locations. 
     */
     
-    if ((Object).keys(locations).length > 0) {
+    if (loaded) {
         return (
             <div>
                 <CardDeck>
