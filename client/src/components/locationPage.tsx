@@ -11,7 +11,6 @@ export const LocationPage: React.FC<Props> = (props) => {
     const [data, setData] = useState({})
     const [loaded, setLoaded] = useState(false)
 
-
     const client = new ApolloClient({
         uri: `/graphql`,
         cache: new InMemoryCache({
@@ -27,6 +26,13 @@ export const LocationPage: React.FC<Props> = (props) => {
         "4 PM", "5 PM", "6 PM", "7 PM", 
         "8 PM", "9 PM", "10 PM", "11 PM", 
     ]
+
+    const primaryLocationName = props.match.params['name']
+                                            .replace('-', ' ')
+                                            .toLowerCase()
+                                            .split(' ')
+                                            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                                            .join(' ')
 
     //Builds the initial GQL query. This query fetches data for all nearby locations so the user can visually see the difference.
     function buildQuery(): string {
@@ -77,12 +83,6 @@ export const LocationPage: React.FC<Props> = (props) => {
     }, [])
 
     if (loaded) {
-        const primaryLocationName = props.match.params['name']
-                                    .replace('-', ' ')
-                                    .toLowerCase()
-                                    .split(' ')
-                                    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-                                    .join(' ')
 
         let seriesArray: [{ name: string; data: number[] }] = [{ name: "", data: [] }]
         seriesArray.pop() //Removes the empty value after initialization
