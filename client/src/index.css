@@ -8,6 +8,60 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.card-deck {
+  align-items: stretch;
+  padding-left: 1%;
+  padding-right: 1%;
+  justify-content: space-evenly;
+}
+
+div.safeCard{
+  box-shadow: 10px 10px 5px rgb(178, 255, 147);
+  justify-content: center;
+  margin: 1rem;
+  border: solid 0.3rem;
+  border-radius: 0.5rem;
+}
+
+div.riskyCard {
+  box-shadow: 10px 10px 5px rgb(243, 148, 148);
+  justify-content: center;
+  margin: 1rem;
+  border: solid 0.3rem;
+  border-radius: 0.5rem;
+}
+
+div.safeCard > div:nth-child(-n+1), div.riskyCard > div:nth-child(-n+1) {
+  font-weight: 800;
+  align-self: center;
+  font-size: x-large;
+}
+
+div.safeCard > div:nth-child(-n+2), div.riskyCard > div:nth-child(-n+2){
+  padding: 0.25rem;
+  align-self: center;
+  font-size: x-large;
+}
+
+div.safeCard > div:nth-child(n+3), div.riskyCard > div:nth-child(n+3){
+  font-weight: 500;
+  padding: 1rem;
+  font-size: x-large;
+  align-self: center;
+  justify-content: center;
+}
+
+div.safeCard > button:nth-child(5), div.riskyCard > button:nth-child(5){
+  font-size: x-large;
+  border-color: black;
+  background-color: black;
+}
+
+div.safeCard > div:nth-child(4),div.riskyCard > div:nth-child(4) {
+  outline: 3px solid black;
+  box-shadow: 2.5px 2.5px 10px gray;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

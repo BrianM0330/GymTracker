@@ -46,7 +46,7 @@ export const GymCard: React.FC<Props> = (props) => {
   }
 
   return (
-    <Card border={cardData.percent_capacity >= 30 ? "danger" : "success"}>
+    <Card className={cardData.percent_capacity >= 50 ? 'riskyCard' : 'safeCard'}>
       <Card.Title>
         {props.locationName}: {cardData.person_count}
       </Card.Title>
